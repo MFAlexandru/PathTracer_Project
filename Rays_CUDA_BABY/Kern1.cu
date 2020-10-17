@@ -16,7 +16,7 @@
 
 #include "Rendering.h"
 #include "Images.h"
-#include "Loader - Copy.h"
+#include "Loader.h"
 
 #include "SFML-2.5.1\include\SFML\Graphics.hpp"
 #include "SFML-2.5.1\include\SFML\OpenGL.hpp"
@@ -118,7 +118,7 @@ __device__ glm::vec3 ray_color(Sphere* spheres, Triangle* triangles, glm::vec3* 
 					// INCEARCA SA MAI MODIFICI PUTERE LUMINII
 					//if (q == 1) pre_Pix = { 0, 0, 0 };
 					//else pre_Pix = pre_Pix * luminosity * 100.0f;
-					pre_Pix = pre_Pix * luminosity * 400.0f;
+					pre_Pix = pre_Pix * luminosity * 50.0f;
 					flt += 1.0;
 					break;
 				}
@@ -280,7 +280,7 @@ int main() {
 		w);
 	Camera *cam;
 	cudaMalloc(&cam, sizeof(Camera));
-	cudaMemcpy(cam, &cam_aux, sizeof(Camera), cudaMemcpyHostToDevice);
+	cudaMemcpy(cam, &cam_aux2, sizeof(Camera), cudaMemcpyHostToDevice);
 
 
 	// LOAD SCENE TO CPU
